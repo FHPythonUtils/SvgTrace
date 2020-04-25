@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "svgtrace"
-version = "2020"
+version = "2020.0.1"
 description = "Leverage pyppeteer and the imagetrace.js library to trace a bitmap to svg in python"
 authors = ["FredHappyface"]
 classifiers = [
@@ -10,9 +10,9 @@ classifiers = [
 	"Programming Language :: Python :: 3.8",
 	"Operating System :: OS Independent"
 ]
-homepage = "https://github.com/FHPythonUtils/MetPrint"
-repository = "https://github.com/FHPythonUtils/MetPrint"
-documentation = "https://github.com/FHPythonUtils/MetPrint/blob/master/README.md"
+homepage = "https://github.com/FHPythonUtils/SvgTrace"
+repository = "https://github.com/FHPythonUtils/SvgTrace"
+documentation = "https://github.com/FHPythonUtils/SvgTrace/blob/master/README.md"
 readme = "README.md"
 
 [tool.poetry.dependencies]

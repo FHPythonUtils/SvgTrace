@@ -21,16 +21,16 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='svgtrace',
-    version='2020',
+    version='2020.0.1',
     description='Leverage pyppeteer and the imagetrace.js library to trace a bitmap to svg in python',
     python_requires='==3.*,>=3.5.0',
     project_urls={
         "documentation":
-            "https://github.com/FHPythonUtils/MetPrint/blob/master/README.md",
+            "https://github.com/FHPythonUtils/SvgTrace/blob/master/README.md",
         "homepage":
-            "https://github.com/FHPythonUtils/MetPrint",
+            "https://github.com/FHPythonUtils/SvgTrace",
         "repository":
-            "https://github.com/FHPythonUtils/MetPrint"
+            "https://github.com/FHPythonUtils/SvgTrace"
     },
     author='FredHappyface',
     classifiers=[
