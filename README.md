@@ -1,5 +1,5 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/FHPythonUtils/SvgTrace.svg?style=for-the-badge)](../../)
-[![Codacy grade](https://img.shields.io/codacy/grade/2a0d815f69e543ecbe38b0720b4d359b.svg?style=for-the-badge)](https://www.codacy.com/manual/FHPythonUtils/SvgTrace)
+[![Codacy grade](https://img.shields.io/codacy/grade/2a0d815f69e543ecbe38b0720b4d359b.svg?style=for-the-badge)](https://www.codacy.com/gh/FHPythonUtils/SvgTrace)
 [![Repository size](https://img.shields.io/github/repo-size/FHPythonUtils/SvgTrace.svg?style=for-the-badge)](../../)
 [![Issues](https://img.shields.io/github/issues/FHPythonUtils/SvgTrace.svg?style=for-the-badge)](../../issues)
 [![License](https://img.shields.io/github/license/FHPythonUtils/SvgTrace.svg?style=for-the-badge)](/LICENSE.md)
