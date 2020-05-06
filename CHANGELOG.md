@@ -2,6 +2,10 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2020.0.2 - 2020/05/06
+- Updated classifiers
+- Added docs
+
 ## 2020.0.1 - 2020/04/25
 - Corrected unvendor imagetracer.js to vendor it (rookie error 😁)
 - Updated project URLs to point to SvgTrace and not MetPrint
