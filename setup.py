@@ -21,9 +21,9 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='svgtrace',
-    version='2020.0.2',
+    version='2020.0.3',
     description='Leverage pyppeteer and the imagetrace.js library to trace a bitmap to svg in python',
-    python_requires='==3.*,>=3.5.0',
+    python_requires='==3.*,>=3.6.1',
     project_urls={
         "documentation":
             "https://github.com/FHPythonUtils/SvgTrace/blob/master/README.md",
@@ -39,7 +39,6 @@ setup(
         'License :: OSI Approved :: MIT License', 'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
@@ -51,6 +50,5 @@ setup(
     packages=['SvgTrace'],
     package_dir={"": "."},
     package_data={"svgtrace": ["*.html", "*.js"]},
-    install_requires=['metprint==2020.*,>=2020.6.0',
-                      'pyppeteer==0.*,>=0.0.25'],
+    install_requires=['metprint==2020.*,>=2020.6.0', 'pyppeteer==0.*,>=0.2.2'],
 )
