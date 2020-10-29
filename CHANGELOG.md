@@ -2,6 +2,10 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2020.1 - 2020/10/29
+- Added typing
+- Drop py < 3.7
+
 ## 2020.0.3 - 2020/07/12
 - Updated pyppeteer to 0.2.2
 

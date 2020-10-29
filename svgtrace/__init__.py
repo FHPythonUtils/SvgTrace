@@ -3,6 +3,7 @@ Author FredHappyface 2020
 Uses pyppeteer to leverage a headless version of Chromium
 Requires imagetracer.html and imagetracer.js along with the modules below
 """
+from __future__ import annotations
 import asyncio
 from pathlib import Path
 from pyppeteer import launch
@@ -10,7 +11,7 @@ from metprint import LogType, Logger, FHFormatter
 
 THISDIR = str(Path(__file__).resolve().parent)
 
-async def doTrace(filename, mode="default"):
+async def doTrace(filename: str, mode: str="default"):
 	"""Main method to call web code
 	"""
 	browser = await launch(options={'args': ['--no-sandbox', '--disable-web-security']})
@@ -26,11 +27,11 @@ async def doTrace(filename, mode="default"):
 	return svg
 
 
-def trace(filename, blackAndWhite=False, mode="default"):
+def trace(filename: str, blackAndWhite: bool=False, mode: str="default") -> str:
 	"""Do a trace of an image on the filesystem using the pyppeteer library
 
 	Args:
-		filename (string): The location of the file on the filesystem, use an
+		filename (str): The location of the file on the filesystem, use an
 		absolute filepath for this
 		blackAndWhite (bool, optional): Trace a black and white SVG. Defaults to False.
 		mode (str, optional): Set the mode. See https://github.com/jankovicsandras/imagetracerjs

@@ -1,4 +1,5 @@
 README.rst
+requirements_optional.txt
 
 # DepHell stuff
 poetry.lock

@@ -1,2 +1,2 @@
-metprint==2020.*,>=2020.6.0
-pyppeteer==0.*,>=0.2.2
+metprint<2022,>=2020.7.1
+pyppeteer<2,>=0.2.2
