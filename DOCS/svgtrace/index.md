@@ -22,7 +22,7 @@ Main method to call web code
 
 ## trace
 
-[[find in source code]](../../svgtrace/__init__.py#L30)
+[[find in source code]](../../svgtrace/__init__.py#L32)
 
 ```python
 def trace(

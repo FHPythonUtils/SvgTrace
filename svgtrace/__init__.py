@@ -14,7 +14,9 @@ THISDIR = str(Path(__file__).resolve().parent)
 async def doTrace(filename: str, mode: str="default"):
 	"""Main method to call web code
 	"""
-	browser = await launch(options={'args': ['--no-sandbox', '--disable-web-security']})
+	browser = await launch(options={'args': ['--no-sandbox', "--headless",
+		"--disable-web-security",
+		"--allow-file-access-from-files"]})
 	page = await browser.newPage()
 	await page.goto('file:///'+THISDIR+'/imagetracer.html')
 	await page.evaluate("ImageTracer.imageToSVG('file:///" + filename +

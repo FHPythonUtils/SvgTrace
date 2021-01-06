@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "svgtrace"
-version = "2020.1.0"
+version = "2021"
 description = "Leverage pyppeteer and the imagetrace.js library to trace a bitmap to svg in python"
 authors = ["FredHappyface"]
 classifiers = [
