@@ -2,6 +2,11 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2021.0.1 - 2021/05/01
+- Reformatting
+- Improve test code a bit
+
+
 ## 2021 - 2021/01/06
 - Fixed bug resulting in failed trace
 

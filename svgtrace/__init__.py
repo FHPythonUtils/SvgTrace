@@ -1,36 +1,49 @@
-"""
-Author FredHappyface 2020
+"""Author FredHappyface 2020.
+
 Uses pyppeteer to leverage a headless version of Chromium
 Requires imagetracer.html and imagetracer.js along with the modules below
 """
 from __future__ import annotations
+
 import asyncio
 from pathlib import Path
+
+from metprint import FHFormatter, Logger, LogType
 from pyppeteer import launch
-from metprint import LogType, Logger, FHFormatter
 
 THISDIR = str(Path(__file__).resolve().parent)
 
-async def doTrace(filename: str, mode: str="default"):
-	"""Main method to call web code
-	"""
-	browser = await launch(options={'args': ['--no-sandbox', "--headless",
-		"--disable-web-security",
-		"--allow-file-access-from-files"]})
+
+async def doTrace(filename: str, mode: str = "default"):
+	"""Call web code."""
+	browser = await launch(
+		options={
+			"args": [
+				"--no-sandbox",
+				"--headless",
+				"--disable-web-security",
+				"--allow-file-access-from-files",
+			]
+		}
+	)
 	page = await browser.newPage()
-	await page.goto('file:///'+THISDIR+'/imagetracer.html')
-	await page.evaluate("ImageTracer.imageToSVG('file:///" + filename +
-		"',function(svgstr){ ImageTracer.appendSVGString( svgstr, 'svg-container' ); },'"
-		+ mode + "');")
-	element = await page.querySelector('div')
-	svg = await page.evaluate('(element) => element.innerHTML', element)
+	await page.goto("file:///" + THISDIR + "/imagetracer.html")
+	await page.evaluate(
+		"ImageTracer.imageToSVG('file:///"
+		+ filename
+		+ "',function(svgstr){ ImageTracer.appendSVGString( svgstr, 'svg-container' ); },'"
+		+ mode
+		+ "');"
+	)
+	element = await page.querySelector("div")
+	svg = await page.evaluate("(element) => element.innerHTML", element)
 
 	await browser.close()
 	return svg
 
 
-def trace(filename: str, blackAndWhite: bool=False, mode: str="default") -> str:
-	"""Do a trace of an image on the filesystem using the pyppeteer library
+def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> str:
+	"""Do a trace of an image on the filesystem using the pyppeteer library.
 
 	Args:
 		filename (str): The location of the file on the filesystem, use an
@@ -42,11 +55,16 @@ def trace(filename: str, blackAndWhite: bool=False, mode: str="default") -> str:
 	Returns:
 		str: SVG string
 	"""
-	if (mode.find('black') >= 0 or blackAndWhite):
-		mode = 'posterized1'
+	if mode.find("black") >= 0 or blackAndWhite:
+		mode = "posterized1"
 	try:
-		return asyncio.get_event_loop().run_until_complete(doTrace(filename.replace('\\', '/'), mode))
+		return asyncio.get_event_loop().run_until_complete(
+			doTrace(filename.replace("\\", "/"), mode)
+		)
 	except ConnectionResetError:
-		Logger(FHFormatter).logPrint("ConnectionResetError - probably just a hiccup " +
-		"retrying", LogType.WARNING)
-		return asyncio.get_event_loop().run_until_complete(doTrace(filename.replace('\\', '/'), mode))
+		Logger(FHFormatter()).logPrint(
+			"ConnectionResetError - probably just a hiccup " + "retrying", LogType.WARNING
+		)
+		return asyncio.get_event_loop().run_until_complete(
+			doTrace(filename.replace("\\", "/"), mode)
+		)

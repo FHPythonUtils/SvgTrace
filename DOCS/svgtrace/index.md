@@ -2,27 +2,28 @@
 
 > Auto-generated documentation for [svgtrace](../../svgtrace/__init__.py) module.
 
-Author FredHappyface 2020
-Uses pyppeteer to leverage a headless version of Chromium
-Requires imagetracer.html and imagetracer.js along with the modules below
+Author FredHappyface 2020.
 
 - [Svgtrace](../README.md#svgtrace-index) / [Modules](../README.md#svgtrace-modules) / svgtrace
     - [doTrace](#dotrace)
     - [trace](#trace)
 
+Uses pyppeteer to leverage a headless version of Chromium
+Requires imagetracer.html and imagetracer.js along with the modules below
+
 ## doTrace
 
-[[find in source code]](../../svgtrace/__init__.py#L14)
+[[find in source code]](../../svgtrace/__init__.py#L17)
 
 ```python
 async def doTrace(filename: str, mode: str = 'default'):
 ```
 
-Main method to call web code
+Call web code.
 
 ## trace
 
-[[find in source code]](../../svgtrace/__init__.py#L32)
+[[find in source code]](../../svgtrace/__init__.py#L45)
 
 ```python
 def trace(
@@ -32,7 +33,7 @@ def trace(
 ) -> str:
 ```
 
-Do a trace of an image on the filesystem using the pyppeteer library
+Do a trace of an image on the filesystem using the pyppeteer library.
 
 #### Arguments
 
