@@ -27,13 +27,9 @@ async def doTrace(filename: str, mode: str = "default"):
 		}
 	)
 	page = await browser.newPage()
-	await page.goto("file:///" + THISDIR + "/imagetracer.html")
+	await page.goto(f"file:///{THISDIR}/imagetracer.html")
 	await page.evaluate(
-		"ImageTracer.imageToSVG('file:///"
-		+ filename
-		+ "',function(svgstr){ ImageTracer.appendSVGString( svgstr, 'svg-container' ); },'"
-		+ mode
-		+ "');"
+		f"ImageTracer.imageToSVG('file:///{filename}',function(svgstr){{ ImageTracer.appendSVGString( svgstr, 'svg-container' ); }},'{mode}');"
 	)
 	element = await page.querySelector("div")
 	svg = await page.evaluate("(element) => element.innerHTML", element)
@@ -63,7 +59,7 @@ def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> 
 		)
 	except ConnectionResetError:
 		Logger(FHFormatter()).logPrint(
-			"ConnectionResetError - probably just a hiccup " + "retrying", LogType.WARNING
+			"ConnectionResetError - probably just a hiccup retrying", LogType.WARNING
 		)
 		return asyncio.get_event_loop().run_until_complete(
 			doTrace(filename.replace("\\", "/"), mode)

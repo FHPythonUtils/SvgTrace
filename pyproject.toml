@@ -1,19 +1,15 @@
 [tool.poetry]
 name = "svgtrace"
-version = "2021.0.1"
+version = "2021.0.2"
+license = "mit"
 description = "Leverage pyppeteer and the imagetrace.js library to trace a bitmap to svg in python"
 authors = ["FredHappyface"]
 classifiers = [
 	"Development Status :: 5 - Production/Stable",
 	"Intended Audience :: Developers",
 	"Intended Audience :: Education",
-	"License :: OSI Approved :: MIT License",
 	"Natural Language :: English",
 	"Operating System :: OS Independent",
-	"Programming Language :: Python :: 3",
-	"Programming Language :: Python :: 3.7",
-	"Programming Language :: Python :: 3.8",
-	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: Implementation :: CPython",
 	"Topic :: Multimedia :: Graphics",
 	"Topic :: Software Development :: Libraries :: Python Modules",
@@ -26,10 +22,42 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-pyppeteer = "<2,>=0.2.2"
-metprint = "<2022,>=2020.7.1"
+pyppeteer = "<2,>=0.2.6"
+metprint = "<2023,>=2021"
 
+[tool.pylint.basic]
+argument-naming-style = "camelCase"
+attr-naming-style = "camelCase"
+function-naming-style = "camelCase"
+method-naming-style = "camelCase"
+variable-naming-style = "camelCase"
+
+[tool.pylint.format]
+indent-string = "\t"
+
+[tool.pylint.master]
+ignore-patterns = "test_.*?py"
+
+[tool.pylint.messages_control]
+enable = ["F", "E", "W", "R", "C"]
+disable = [
+	"pointless-string-statement",
+	"superfluous-parens",
+	"bad-continuation"
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py37"]
+
+[tool.isort]
+profile = "black"
+indent = "Tab"
+
+[tool.pydocstyle]
+convention = "google"
+ignore = "D205,D415"
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

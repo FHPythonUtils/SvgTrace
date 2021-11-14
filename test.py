@@ -7,8 +7,6 @@ from svgtrace import trace
 THISDIR = str(Path(__file__).resolve().parent)
 
 
-with open(THISDIR + "/logo-bw.svg", "w") as bw:
-	bw.write(trace(THISDIR + "/logo-bw.png", True))
+Path(f"{THISDIR}/logo-bw.svg").write_text(trace(THISDIR + "/logo-bw.png", True), encoding="utf-8")
 
-with open(THISDIR + "/logo.svg", "w") as colour:
-	colour.write(trace(THISDIR + "/logo.png"))
+Path(f"{THISDIR}/logo.svg").write_text(trace(THISDIR + "/logo.png"), encoding="utf-8")
