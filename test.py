@@ -1,5 +1,7 @@
 """Test the image tracer."""
 
+from __future__ import annotations
+
 from pathlib import Path
 
 from svgtrace import trace
