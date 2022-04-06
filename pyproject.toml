@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "svgtrace"
-version = "2021.0.2"
+version = "2022"
 license = "mit"
 description = "Leverage pyppeteer and the imagetrace.js library to trace a bitmap to svg in python"
 authors = ["FredHappyface"]
@@ -22,8 +22,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-pyppeteer = "<2,>=0.2.6"
-metprint = "<2023,>=2021"
+pyppeteer = "<2,>=1.0.2"
 
 [tool.pylint.basic]
 argument-naming-style = "camelCase"

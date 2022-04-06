@@ -8,7 +8,6 @@ from __future__ import annotations
 import asyncio
 from pathlib import Path
 
-from metprint import FHFormatter, Logger, LogType
 from pyppeteer import launch
 
 THISDIR = str(Path(__file__).resolve().parent)
@@ -58,9 +57,7 @@ def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> 
 			doTrace(filename.replace("\\", "/"), mode)
 		)
 	except ConnectionResetError:
-		Logger(FHFormatter()).logPrint(
-			"ConnectionResetError - probably just a hiccup retrying", LogType.WARNING
-		)
+		print("WARNING: ConnectionResetError - probably just a hiccup retrying")
 		return asyncio.get_event_loop().run_until_complete(
 			doTrace(filename.replace("\\", "/"), mode)
 		)

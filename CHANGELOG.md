@@ -3,6 +3,14 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2022 - 2022/01/06
+
+- update precommit
+- update documentation
+- improve tests (run with pytest - generates output)
+- update deps
+- remove `metprint`
+
 ## 2021.0.2 - 2021/11/14
 
 - add pre-commit

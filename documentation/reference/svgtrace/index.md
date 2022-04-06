@@ -1,10 +1,10 @@
-# svgtrace
+# Svgtrace
 
-> Auto-generated documentation for [svgtrace](../../svgtrace/__init__.py) module.
+> Auto-generated documentation for [svgtrace](../../../svgtrace/__init__.py) module.
 
 Author FredHappyface 2020.
 
-- [Svgtrace](../README.md#svgtrace-index) / [Modules](../README.md#svgtrace-modules) / svgtrace
+- [Svgtrace](../README.md#svgtrace-index) / [Modules](../MODULES.md#svgtrace-modules) / Svgtrace
     - [doTrace](#dotrace)
     - [trace](#trace)
 
@@ -13,7 +13,7 @@ Requires imagetracer.html and imagetracer.js along with the modules below
 
 ## doTrace
 
-[[find in source code]](../../svgtrace/__init__.py#L17)
+[[find in source code]](../../../svgtrace/__init__.py#L16)
 
 ```python
 async def doTrace(filename: str, mode: str = 'default'):
@@ -23,7 +23,7 @@ Call web code.
 
 ## trace
 
-[[find in source code]](../../svgtrace/__init__.py#L41)
+[[find in source code]](../../../svgtrace/__init__.py#L40)
 
 ```python
 def trace(
