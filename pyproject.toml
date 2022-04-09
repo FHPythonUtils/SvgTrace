@@ -24,6 +24,11 @@ readme = "README.md"
 python = "^3.7"
 pyppeteer = "<2,>=1.0.2"
 
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.1"
+pylint = "^2.13.5"
+handsdown = "^1.1.0"
+
 [tool.pylint.basic]
 argument-naming-style = "camelCase"
 attr-naming-style = "camelCase"
