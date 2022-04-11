@@ -28,6 +28,9 @@ pyppeteer = "<2,>=1.0.2"
 pytest = "^7.1.1"
 pylint = "^2.13.5"
 handsdown = "^1.1.0"
+coverage = "^6.3.2"
+imgcompare = "^2.0.1"
+nocairosvg = "^2022.0.1"
 
 [tool.pylint.basic]
 argument-naming-style = "camelCase"
