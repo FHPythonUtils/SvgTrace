@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "svgtrace"
-version = "2022"
+version = "2023"
 license = "mit"
-description = "Leverage pyppeteer and the imagetrace.js library to trace a bitmap to svg in python"
+description = "Leverage playwright and the imagetrace.js library to trace a bitmap to svg in python"
 authors = ["FredHappyface"]
 classifiers = [
 	"Development Status :: 5 - Production/Stable",
@@ -21,41 +21,21 @@ documentation = "https://github.com/FHPythonUtils/SvgTrace/blob/master/README.md
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.7"
-pyppeteer = "<2,>=1.0.2"
+python = "^3.8"
+playwright = "<2,>=1.29.1"
+install-playwright = "<2,>=0.0.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
+nocairosvg = "^2023"
 pytest = "^7.1.1"
 pylint = "^2.13.5"
 handsdown = "^1.1.0"
 coverage = "^6.3.2"
 imgcompare = "^2.0.1"
-nocairosvg = "^2022.0.1"
-
-[tool.pylint.basic]
-argument-naming-style = "camelCase"
-attr-naming-style = "camelCase"
-function-naming-style = "camelCase"
-method-naming-style = "camelCase"
-variable-naming-style = "camelCase"
-
-[tool.pylint.format]
-indent-string = "\t"
-
-[tool.pylint.master]
-ignore-patterns = "test_.*?py"
-
-[tool.pylint.messages_control]
-enable = ["F", "E", "W", "R", "C"]
-disable = [
-	"pointless-string-statement",
-	"superfluous-parens",
-	"bad-continuation"
-]
 
 [tool.black]
 line-length = 100
-target-version = ["py37"]
+target-version = ["py38"]
 
 [tool.isort]
 profile = "black"
@@ -68,3 +48,37 @@ ignore = "D205,D415"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.basic]
+argument-naming-style = "camelCase"
+attr-naming-style = "camelCase"
+function-naming-style = "camelCase"
+method-naming-style = "camelCase"
+variable-naming-style = "camelCase"
+
+[tool.pylint.format]
+indent-string = "\t"
+
+[tool.pylint.master]
+ignore-paths = ["tests"]
+
+[tool.pylint.messages_control]
+enable = ["F", "E", "W", "R", "C"]
+disable = ["pointless-string-statement", "superfluous-parens"]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+env_list =
+	py311
+	py310
+	py39
+	py38
+
+[testenv]
+deps =
+	nocairosvg
+	pytest
+	imgcompare
+commands = pytest tests
+"""

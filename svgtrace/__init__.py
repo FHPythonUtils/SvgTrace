@@ -1,6 +1,6 @@
 """Author FredHappyface 2020.
 
-Uses pyppeteer to leverage a headless version of Chromium
+Uses playwright to leverage a headless version of Chromium
 Requires imagetracer.html and imagetracer.js along with the modules below
 """
 from __future__ import annotations
@@ -8,37 +8,17 @@ from __future__ import annotations
 import asyncio
 from pathlib import Path
 
-from pyppeteer import launch
+from install_playwright import install
+from playwright.sync_api import sync_playwright
+
 
 THISDIR = str(Path(__file__).resolve().parent)
 
 
-async def doTrace(filename: str, mode: str = "default"):
-	"""Call web code."""
-	browser = await launch(
-		options={
-			"args": [
-				"--no-sandbox",
-				"--headless",
-				"--disable-web-security",
-				"--allow-file-access-from-files",
-			]
-		}
-	)
-	page = await browser.newPage()
-	await page.goto(f"file:///{THISDIR}/imagetracer.html")
-	await page.evaluate(
-		f"ImageTracer.imageToSVG('file:///{filename}',function(svgstr){{ ImageTracer.appendSVGString( svgstr, 'svg-container' ); }},'{mode}');"
-	)
-	element = await page.querySelector("div")
-	svg = await page.evaluate("(element) => element.innerHTML", element)
-
-	await browser.close()
-	return svg
 
 
 def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> str:
-	"""Do a trace of an image on the filesystem using the pyppeteer library.
+	"""Do a trace of an image on the filesystem using the playwright library.
 
 	Args:
 		filename (str): The location of the file on the filesystem, use an
@@ -52,12 +32,22 @@ def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> 
 	"""
 	if mode.find("black") >= 0 or blackAndWhite:
 		mode = "posterized1"
-	try:
-		return asyncio.get_event_loop().run_until_complete(
-			doTrace(filename.replace("\\", "/"), mode)
+
+	filename=filename.replace('\\', '/')
+
+	with sync_playwright() as p:
+		install(p.chromium)
+		browser = p.chromium.launch(
+			args=["--no-sandbox", "--disable-web-security", "--allow-file-access-from-files"]
 		)
-	except ConnectionResetError:
-		print("WARNING: ConnectionResetError - probably just a hiccup retrying")
-		return asyncio.get_event_loop().run_until_complete(
-			doTrace(filename.replace("\\", "/"), mode)
+
+		page = browser.new_page()
+		page.goto(f"file:///{THISDIR}/imagetracer.html")
+		page.evaluate(
+			f"ImageTracer.imageToSVG('file:///{filename}',function(svgstr){{ ImageTracer.appendSVGString( svgstr, 'svg-container' ); }},'{mode}');"
 		)
+		element = page.query_selector("div")
+		svg = page.evaluate("(element) => element.innerHTML", element)
+
+		browser.close()
+	return svg

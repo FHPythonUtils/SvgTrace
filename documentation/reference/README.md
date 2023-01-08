@@ -1,8 +1,7 @@
-# Svgtrace Modules
+# Svgtrace Index
 
-> Auto-generated documentation modules index.
+> Auto-generated documentation index.
 
-Full list of [Svgtrace](README.md#svgtrace-index) project modules.
+A full list of `Svgtrace` project modules.
 
-- [Svgtrace Index](README.md#svgtrace-index)
 - [Svgtrace](svgtrace/index.md#svgtrace)

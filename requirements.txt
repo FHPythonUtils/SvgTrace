@@ -1,1 +1,2 @@
-pyppeteer<2,>=1.0.2
+install-playwright<2,>=0.0.0
+playwright<2,>=1.29.1

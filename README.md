@@ -8,12 +8,12 @@
 [![PyPI Total Downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&label=total%20downloads&query=%24.total_downloads&url=https%3A%2F%2Fapi.pepy.tech%2Fapi%2Fprojects%2Fsvgtrace)](https://pepy.tech/project/svgtrace)
 [![PyPI Version](https://img.shields.io/pypi/v/svgtrace.svg?style=for-the-badge)](https://pypi.org/project/svgtrace)
 
-<!-- omit in TOC -->
+<!-- omit in toc -->
 # SvgTrace
 
 <img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
 
-Leverage pyppeteer and the imagetrace.js library to trace a bitmap to SVG in
+Leverage playwright and the imagetrace.js library to trace a bitmap to SVG in
 python
 
 - [Example](#example)
@@ -33,6 +33,8 @@ python
 - [How to run](#how-to-run)
 	- [Windows](#windows)
 	- [Linux/ MacOS](#linux-macos)
+- [Building](#building)
+- [Testing](#testing)
 - [Download Project](#download-project)
 	- [Clone](#clone)
 		- [Using The Command Line](#using-the-command-line)
@@ -106,8 +108,8 @@ Head to https://pypi.org/project/svgtrace/ for more info
 
 ### Built for
 
-This program has been written for Python versions 3.7 - 3.10 and has been tested with both 3.7 and
-3.10
+This program has been written for Python versions 3.8 - 3.11 and has been tested with both 3.8 and
+3.11
 
 ## Install Python on Windows
 
@@ -166,6 +168,36 @@ version.
 
 - File
 	`python3.x [file]` or `./[file]`
+
+## Building
+
+This project uses https://github.com/FHPythonUtils/FHMake to automate most of the building. This
+command generates the documentation, updates the requirements.txt and builds the library artefacts
+
+Note the functionality provided by fhmake can be approximated by the following
+
+```sh
+handsdown  --cleanup -o documentation/reference
+poetry export -f requirements.txt --output requirements.txt
+poetry export -f requirements.txt --with dev --output requirements_optional.txt
+poetry build
+```
+
+`fhmake audit` can be run to perform additional checks
+
+## Testing
+
+For testing with the version of python used by poetry use
+
+```sh
+poetry run pytest
+```
+
+Alternatively use `tox` to run tests over python 3.8 - 3.11
+
+```sh
+tox
+```
 
 ## Download Project
 

@@ -1,39 +1,18 @@
 # Svgtrace
 
+[Svgtrace Index](../README.md#svgtrace-index) /
+Svgtrace
+
 > Auto-generated documentation for [svgtrace](../../../svgtrace/__init__.py) module.
 
-Author FredHappyface 2020.
-
-- [Svgtrace](../README.md#svgtrace-index) / [Modules](../MODULES.md#svgtrace-modules) / Svgtrace
-    - [doTrace](#dotrace)
-    - [trace](#trace)
-
-Uses pyppeteer to leverage a headless version of Chromium
-Requires imagetracer.html and imagetracer.js along with the modules below
-
-## doTrace
-
-[[find in source code]](../../../svgtrace/__init__.py#L16)
-
-```python
-async def doTrace(filename: str, mode: str = 'default'):
-```
-
-Call web code.
+- [Svgtrace](#svgtrace)
+  - [trace](#trace)
 
 ## trace
 
-[[find in source code]](../../../svgtrace/__init__.py#L40)
+[Show source in __init__.py:20](../../../svgtrace/__init__.py#L20)
 
-```python
-def trace(
-    filename: str,
-    blackAndWhite: bool = False,
-    mode: str = 'default',
-) -> str:
-```
-
-Do a trace of an image on the filesystem using the pyppeteer library.
+Do a trace of an image on the filesystem using the playwright library.
 
 #### Arguments
 
@@ -46,3 +25,12 @@ for more information. Defaults to "default".
 #### Returns
 
 - `str` - SVG string
+
+#### Signature
+
+```python
+def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> str:
+    ...
+```
+
+
