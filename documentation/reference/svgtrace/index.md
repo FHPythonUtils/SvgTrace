@@ -10,7 +10,7 @@ Svgtrace
 
 ## trace
 
-[Show source in __init__.py:20](../../../svgtrace/__init__.py#L20)
+[Show source in __init__.py:17](../../../svgtrace/__init__.py#L17)
 
 Do a trace of an image on the filesystem using the playwright library.
 
@@ -25,6 +25,10 @@ for more information. Defaults to "default".
 #### Returns
 
 - `str` - SVG string
+
+#### Raises
+
+FileNotFoundError f"{filename} does not exist!"
 
 #### Signature
 

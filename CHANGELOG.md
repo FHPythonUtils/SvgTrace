@@ -3,6 +3,10 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2023.0.1 - 2023/03/12
+
+- Raise `FileNotFoundError` when input does not exist
+
 ## 2023 - 2023/01/08
 
 - Add tox config

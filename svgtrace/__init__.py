@@ -11,10 +11,7 @@ from pathlib import Path
 from install_playwright import install
 from playwright.sync_api import sync_playwright
 
-
 THISDIR = str(Path(__file__).resolve().parent)
-
-
 
 
 def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> str:
@@ -29,11 +26,17 @@ def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> 
 
 	Returns:
 		str: SVG string
+
+	Raises:
+		FileNotFoundError f"{filename} does not exist!"
 	"""
 	if mode.find("black") >= 0 or blackAndWhite:
 		mode = "posterized1"
 
-	filename=filename.replace('\\', '/')
+	filename = filename.replace("\\", "/")
+
+	if not Path(filename).exists():
+		raise FileNotFoundError(f"{filename} does not exist!")
 
 	with sync_playwright() as p:
 		install(p.chromium)

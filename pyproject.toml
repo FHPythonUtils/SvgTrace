@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "svgtrace"
-version = "2023"
+version = "2023.0.1"
 license = "mit"
 description = "Leverage playwright and the imagetrace.js library to trace a bitmap to svg in python"
 authors = ["FredHappyface"]
