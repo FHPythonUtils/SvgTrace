@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "svgtrace"
-version = "2023.1"
+version = "2024"
 license = "mit"
 description = "Leverage playwright and the imagetrace.js library to trace a bitmap to svg in python"
 authors = ["FredHappyface"]
@@ -22,18 +22,18 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-playwright = "<2,>=1.35.0"
-install-playwright = "<2,>=0.0.0"
-scikit-image = "<2,>=0.21.0"
-pillow = "<10,>=9.5.0"
-numpy = "<2,>=1.25.0"
+playwright = "<2,>=1.40.0"
+install-playwright = "<2,>=0.0.1"
+scikit-image = "<2,>=0.22.0"
+pillow = "<11,>=10.2.0"
+numpy = "<2,>=1.26.3"
 
 [tool.poetry.group.dev.dependencies]
-nocairosvg = "^2023"
-pytest = "^7.1.1"
-pylint = "^2.13.5"
-handsdown = "^1.1.0"
-coverage = "^6.3.2"
+nocairosvg = "^2023.1"
+pytest = "^7.4.4"
+pylint = "^3.0.3"
+handsdown = "^2.1.0"
+coverage = "^7.4.0"
 imgcompare = "^2.0.1"
 
 [tool.black]

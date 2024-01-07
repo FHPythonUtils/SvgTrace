@@ -38,8 +38,7 @@ OSError "svgtrace.trace/ asyncTrace is not supported in Windows Jupyter Notebook
 ```python
 async def asyncTrace(
     filename: str, blackAndWhite: bool = False, mode: str = "default"
-) -> str:
-    ...
+) -> str: ...
 ```
 
 
@@ -61,8 +60,7 @@ Do a trace of an pillow image using the skimage library.
 #### Signature
 
 ```python
-def skimageTrace(image: Image.Image) -> str:
-    ...
+def skimageTrace(image: Image.Image) -> str: ...
 ```
 
 
@@ -92,8 +90,5 @@ FileNotFoundError f"{filename} does not exist!"
 #### Signature
 
 ```python
-def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> str:
-    ...
+def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> str: ...
 ```
-
-

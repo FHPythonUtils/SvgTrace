@@ -3,6 +3,10 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2024 - 2024/01/07
+
+- update dependencies
+
 ## 2023.1 - 2023/06/25
 
 - Add `asyncTrace` and `skimageTrace`
