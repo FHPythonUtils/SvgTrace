@@ -38,7 +38,9 @@ def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> 
 	return asyncio.run(asyncTrace(filename, blackAndWhite, mode))
 
 
-async def asyncTrace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> str:
+async def asyncTrace(
+	filename: str, blackAndWhite: bool = False, mode: str = "default"
+) -> str:
 	"""Do a trace of an image on the filesystem using the playwright library.
 
 	Args:
@@ -63,7 +65,9 @@ async def asyncTrace(filename: str, blackAndWhite: bool = False, mode: str = "de
 		except ImportError:
 			pass
 		else:
-			if isinstance(asyncio.get_event_loop_policy(), WindowsSelectorEventLoopPolicy):
+			if isinstance(
+				asyncio.get_event_loop_policy(), WindowsSelectorEventLoopPolicy
+			):
 				raise OSError(
 					"svgtrace.trace/ asyncTrace is not supported in Windows Jupyter Notebooks"
 				)
@@ -80,7 +84,11 @@ async def asyncTrace(filename: str, blackAndWhite: bool = False, mode: str = "de
 	async with async_playwright() as p:
 		install(p.chromium)
 		browser = await p.chromium.launch(
-			args=["--no-sandbox", "--disable-web-security", "--allow-file-access-from-files"]
+			args=[
+				"--no-sandbox",
+				"--disable-web-security",
+				"--allow-file-access-from-files",
+			]
 		)
 
 		page = await browser.new_page()

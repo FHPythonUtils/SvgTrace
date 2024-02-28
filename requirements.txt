@@ -1,5 +1,5 @@
 install-playwright<2,>=0.0.1
-numpy<2,>=1.26.3
+numpy<2,>=1.26.4
 pillow<11,>=10.2.0
-playwright<2,>=1.40.0
+playwright<2,>=1.41.2
 scikit-image<2,>=0.22.0

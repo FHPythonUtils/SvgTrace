@@ -22,23 +22,25 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-playwright = "<2,>=1.40.0"
+playwright = "<2,>=1.41.2"
 install-playwright = "<2,>=0.0.1"
 scikit-image = "<2,>=0.22.0"
 pillow = "<11,>=10.2.0"
-numpy = "<2,>=1.26.3"
+numpy = "<2,>=1.26.4"
 
 [tool.poetry.group.dev.dependencies]
-nocairosvg = "^2023.1"
-pytest = "^7.4.4"
-pylint = "^3.0.3"
+nocairosvg = "^2024"
+pytest = "^8.0.2"
+pylint = "^3.1.0"
 handsdown = "^2.1.0"
-coverage = "^7.4.0"
+coverage = "^7.4.3"
 imgcompare = "^2.0.1"
 
-[tool.black]
-line-length = 100
-target-version = ["py38"]
+[tool.ruff.format]
+indent-style = "tab"
+docstring-code-format = true
+line-ending = "lf"
+
 
 [tool.isort]
 profile = "black"

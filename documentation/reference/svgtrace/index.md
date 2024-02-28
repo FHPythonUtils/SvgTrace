@@ -1,7 +1,6 @@
 # Svgtrace
 
-[Svgtrace Index](../README.md#svgtrace-index) /
-Svgtrace
+[Svgtrace Index](../README.md#svgtrace-index) / Svgtrace
 
 > Auto-generated documentation for [svgtrace](../../../svgtrace/__init__.py) module.
 
