@@ -3,6 +3,7 @@
 Uses playwright to leverage a headless version of Chromium
 Requires imagetracer.html and imagetracer.js along with the modules below
 """
+
 from __future__ import annotations
 
 import asyncio
@@ -23,6 +24,7 @@ def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> 
 	"""Do a trace of an image on the filesystem using the playwright library.
 
 	Args:
+	----
 		filename (str): The location of the file on the filesystem, use an
 		absolute filepath for this
 		blackAndWhite (bool, optional): Trace a black and white SVG. Defaults to False.
@@ -30,20 +32,22 @@ def trace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> 
 		for more information. Defaults to "default".
 
 	Returns:
+	-------
 		str: SVG string
 
 	Raises:
+	------
 		FileNotFoundError f"{filename} does not exist!"
+
 	"""
 	return asyncio.run(asyncTrace(filename, blackAndWhite, mode))
 
 
-async def asyncTrace(
-	filename: str, blackAndWhite: bool = False, mode: str = "default"
-) -> str:
+async def asyncTrace(filename: str, blackAndWhite: bool = False, mode: str = "default") -> str:
 	"""Do a trace of an image on the filesystem using the playwright library.
 
 	Args:
+	----
 		filename (str): The location of the file on the filesystem, use an
 		absolute filepath for this
 		blackAndWhite (bool, optional): Trace a black and white SVG. Defaults to False.
@@ -51,11 +55,14 @@ async def asyncTrace(
 		for more information. Defaults to "default".
 
 	Returns:
+	-------
 		str: SVG string
 
 	Raises:
+	------
 		FileNotFoundError f"{filename} does not exist!"
 		OSError "svgtrace.trace/ asyncTrace is not supported in Windows Jupyter Notebooks"
+
 	"""
 	# Detecting Default event loop in Notebook 6.1.6 on Windows is not ProactorEventLoop
 	# (https://github.com/jupyter/notebook/issues/5916)
@@ -65,9 +72,7 @@ async def asyncTrace(
 		except ImportError:
 			pass
 		else:
-			if isinstance(
-				asyncio.get_event_loop_policy(), WindowsSelectorEventLoopPolicy
-			):
+			if isinstance(asyncio.get_event_loop_policy(), WindowsSelectorEventLoopPolicy):
 				raise OSError(
 					"svgtrace.trace/ asyncTrace is not supported in Windows Jupyter Notebooks"
 				)
@@ -107,10 +112,13 @@ def skimageTrace(image: Image.Image) -> str:
 	"""Do a trace of an pillow image using the skimage library.
 
 	Args:
+	----
 		image (Image.Image): pillow image to trace
 
 	Returns:
+	-------
 		str: SVG string
+
 	"""
 	with warnings.catch_warnings():
 		warnings.filterwarnings("ignore")

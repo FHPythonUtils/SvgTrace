@@ -11,26 +11,29 @@
 
 ## asyncTrace
 
-[Show source in __init__.py:41](../../../svgtrace/__init__.py#L41)
+[Show source in __init__.py:46](../../../svgtrace/__init__.py#L46)
 
 Do a trace of an image on the filesystem using the playwright library.
 
 #### Arguments
 
-- `filename` *str* - The location of the file on the filesystem, use an
-absolute filepath for this
-- `blackAndWhite` *bool, optional* - Trace a black and white SVG. Defaults to False.
-- `mode` *str, optional* - Set the mode. See https://github.com/jankovicsandras/imagetracerjs
-for more information. Defaults to "default".
+----
+ - `filename` *str* - The location of the file on the filesystem, use an
+ absolute filepath for this
+ - `blackAndWhite` *bool, optional* - Trace a black and white SVG. Defaults to False.
+ - `mode` *str, optional* - Set the mode. See https://github.com/jankovicsandras/imagetracerjs
+ for more information. Defaults to "default".
 
 #### Returns
 
-- `str` - SVG string
+-------
+ - `str` - SVG string
 
 #### Raises
 
-FileNotFoundError f"{filename} does not exist!"
-OSError "svgtrace.trace/ asyncTrace is not supported in Windows Jupyter Notebooks"
+------
+ FileNotFoundError f"{filename} does not exist!"
+ OSError "svgtrace.trace/ asyncTrace is not supported in Windows Jupyter Notebooks"
 
 #### Signature
 
@@ -44,17 +47,19 @@ async def asyncTrace(
 
 ## skimageTrace
 
-[Show source in __init__.py:106](../../../svgtrace/__init__.py#L106)
+[Show source in __init__.py:111](../../../svgtrace/__init__.py#L111)
 
 Do a trace of an pillow image using the skimage library.
 
 #### Arguments
 
-- `image` *Image.Image* - pillow image to trace
+----
+ - `image` *Image.Image* - pillow image to trace
 
 #### Returns
 
-- `str` - SVG string
+-------
+ - `str` - SVG string
 
 #### Signature
 
@@ -66,25 +71,28 @@ def skimageTrace(image: Image.Image) -> str: ...
 
 ## trace
 
-[Show source in __init__.py:22](../../../svgtrace/__init__.py#L22)
+[Show source in __init__.py:23](../../../svgtrace/__init__.py#L23)
 
 Do a trace of an image on the filesystem using the playwright library.
 
 #### Arguments
 
-- `filename` *str* - The location of the file on the filesystem, use an
-absolute filepath for this
-- `blackAndWhite` *bool, optional* - Trace a black and white SVG. Defaults to False.
-- `mode` *str, optional* - Set the mode. See https://github.com/jankovicsandras/imagetracerjs
-for more information. Defaults to "default".
+----
+ - `filename` *str* - The location of the file on the filesystem, use an
+ absolute filepath for this
+ - `blackAndWhite` *bool, optional* - Trace a black and white SVG. Defaults to False.
+ - `mode` *str, optional* - Set the mode. See https://github.com/jankovicsandras/imagetracerjs
+ for more information. Defaults to "default".
 
 #### Returns
 
-- `str` - SVG string
+-------
+ - `str` - SVG string
 
 #### Raises
 
-FileNotFoundError f"{filename} does not exist!"
+------
+ FileNotFoundError f"{filename} does not exist!"
 
 #### Signature
 

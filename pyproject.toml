@@ -22,7 +22,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-playwright = "<2,>=1.41.2"
+playwright = "<2,>=1.42.0"
 install-playwright = "<2,>=0.0.1"
 scikit-image = "<2,>=0.22.0"
 pillow = "<11,>=10.2.0"
@@ -30,46 +30,52 @@ numpy = "<2,>=1.26.4"
 
 [tool.poetry.group.dev.dependencies]
 nocairosvg = "^2024"
-pytest = "^8.0.2"
+pytest = "^8.1.1"
 pylint = "^3.1.0"
 handsdown = "^2.1.0"
-coverage = "^7.4.3"
+coverage = "^7.4.4"
 imgcompare = "^2.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+	"ANN101",  # type annotation for self in method
+	"COM812",  # enforce trailing comma
+	"D2",  # pydocstyle formatting
+	"ISC001",
+	"N",  # pep8 naming
+	"PLR09",  # pylint refactor too many
+	"TCH",  # type check blocks
+	"W191"  # ignore this to allow tabs
+]
+fixable = ["ALL"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/{tests,docs,tools}/*" = ["D", "S101", "E402"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all" # Disallow all relative imports.
 
 [tool.ruff.format]
 indent-style = "tab"
 docstring-code-format = true
 line-ending = "lf"
 
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
 
-[tool.isort]
-profile = "black"
-indent = "Tab"
-
-[tool.pydocstyle]
-convention = "google"
-ignore = "D205,D415"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.pylint.basic]
-argument-naming-style = "camelCase"
-attr-naming-style = "camelCase"
-function-naming-style = "camelCase"
-method-naming-style = "camelCase"
-variable-naming-style = "camelCase"
-
-[tool.pylint.format]
-indent-string = "\t"
-
-[tool.pylint.master]
-ignore-paths = ["tests"]
-
-[tool.pylint.messages_control]
-enable = ["F", "E", "W", "R", "C"]
-disable = ["pointless-string-statement", "superfluous-parens"]
+[tool.coverage.run]
+branch = true
 
 [tool.tox]
 legacy_tox_ini = """

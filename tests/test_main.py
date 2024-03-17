@@ -1,4 +1,5 @@
 """Test the image tracer."""
+
 import asyncio
 import sys
 from pathlib import Path
@@ -23,9 +24,7 @@ def aux_comparesvg(svgpath: str, pngpath: str) -> bool:
 
 
 def test_bw():
-	Path(f"{logoFile}-bw.svg").write_text(
-		trace(f"{logoFile}-bw.png", True), encoding="utf-8"
-	)
+	Path(f"{logoFile}-bw.svg").write_text(trace(f"{logoFile}-bw.png", True), encoding="utf-8")
 	aux_comparesvg(f"{logoFile}-bw.svg", "logo-actual-bw.png")
 
 
@@ -64,6 +63,4 @@ def test_skimageColour():
 
 def test_notExists():
 	with pytest.raises(FileNotFoundError):
-		Path(f"{notExistsFile}.svg").write_text(
-			trace(f"{notExistsFile}.png"), encoding="utf-8"
-		)
+		Path(f"{notExistsFile}.svg").write_text(trace(f"{notExistsFile}.png"), encoding="utf-8")
