@@ -73,8 +73,9 @@ async def asyncTrace(filename: str, blackAndWhite: bool = False, mode: str = "de
 			pass
 		else:
 			if isinstance(asyncio.get_event_loop_policy(), WindowsSelectorEventLoopPolicy):
+				msg = "svgtrace.trace/ asyncTrace is not supported in Windows Jupyter Notebooks"
 				raise OSError(
-					"svgtrace.trace/ asyncTrace is not supported in Windows Jupyter Notebooks"
+					msg
 				)
 
 	#
@@ -84,7 +85,8 @@ async def asyncTrace(filename: str, blackAndWhite: bool = False, mode: str = "de
 	filename = filename.replace("\\", "/")
 
 	if not Path(filename).exists():
-		raise FileNotFoundError(f"{filename} does not exist!")
+		msg = f"{filename} does not exist!"
+		raise FileNotFoundError(msg)
 
 	async with async_playwright() as p:
 		install(p.chromium)
@@ -130,9 +132,8 @@ def skimageTrace(image: Image.Image) -> str:
 		pathData = " L ".join([f"{coord[1]},{coord[0]}" for coord in contour])
 		paths.append(f'<path d="M {pathData} Z" stroke="black" fill="none" />')
 
-	svg = (
+	return (
 		f'<svg xmlns="http://www.w3.org/2000/svg" width="{image.width}" height="{image.height}">'
 		+ "".join(paths)
 		+ "</svg>"
 	)
-	return svg

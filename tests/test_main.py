@@ -23,44 +23,44 @@ def aux_comparesvg(svgpath: str, pngpath: str) -> bool:
 	imgcompare.is_equal(output.replace("-actual", "-expected"), output, tolerance=0.2)
 
 
-def test_bw():
+def test_bw() -> None:
 	Path(f"{logoFile}-bw.svg").write_text(trace(f"{logoFile}-bw.png", True), encoding="utf-8")
 	aux_comparesvg(f"{logoFile}-bw.svg", "logo-actual-bw.png")
 
 
-def test_colour():
+def test_colour() -> None:
 	Path(f"{logoFile}.svg").write_text(trace(f"{logoFile}.png"), encoding="utf-8")
 	aux_comparesvg(f"{logoFile}.svg", "logo-actual.png")
 
 
-def test_asyncBw():
+def test_asyncBw() -> None:
 	Path(f"{logoFile}-asyncBw.svg").write_text(
 		asyncio.run(asyncTrace(f"{logoFile}-bw.png", True)), encoding="utf-8"
 	)
 	aux_comparesvg(f"{logoFile}-asyncBw.svg", "logo-actual-bw.png")
 
 
-def test_asyncColour():
+def test_asyncColour() -> None:
 	Path(f"{logoFile}-async.svg").write_text(
 		asyncio.run(asyncTrace(f"{logoFile}.png")), encoding="utf-8"
 	)
 	aux_comparesvg(f"{logoFile}-async.svg", "logo-actual.png")
 
 
-def test_skimageBw():
+def test_skimageBw() -> None:
 	Path(f"{logoFile}-skimagebw.svg").write_text(
 		skimageTrace(Image.open(f"{logoFile}-bw.png")), encoding="utf-8"
 	)
 	aux_comparesvg(f"{logoFile}-skimagebw.svg", "logo-actual-skimagebw.png")
 
 
-def test_skimageColour():
+def test_skimageColour() -> None:
 	Path(f"{logoFile}-skimage.svg").write_text(
 		skimageTrace(Image.open(f"{logoFile}.png")), encoding="utf-8"
 	)
 	aux_comparesvg(f"{logoFile}-skimage.svg", "logo-actual-skimage.png")
 
 
-def test_notExists():
+def test_notExists() -> None:
 	with pytest.raises(FileNotFoundError):
 		Path(f"{notExistsFile}.svg").write_text(trace(f"{notExistsFile}.png"), encoding="utf-8")
