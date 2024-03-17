@@ -47,7 +47,7 @@ async def asyncTrace(
 
 ## skimageTrace
 
-[Show source in __init__.py:111](../../../svgtrace/__init__.py#L111)
+[Show source in __init__.py:113](../../../svgtrace/__init__.py#L113)
 
 Do a trace of an pillow image using the skimage library.
 
